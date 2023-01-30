@@ -1,0 +1,32 @@
+.table {
+  width: 98%;
+  margin: 10px auto;
+  box-shadow: 3px 3px 10px 5px silver;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.table th {
+  border-bottom: 2px solid #7a00aa;
+  height: 50px;
+}
+
+.table th button {
+  margin-left: 5px;
+}
+
+.table th img {
+  width: 10px;
+  height: 10px;
+}
+
+.table td {
+  border-bottom: 1px solid #7a00aa;
+  height: 50px;
+}
+
+.table tbody tr:hover {
+  background-color: #3fccff;
+  font-weight: bold;
+  cursor: pointer;
+}

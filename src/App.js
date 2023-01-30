@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+// import { mainDataSliceActions } from "./redux/mainData-slice";
+import { gettingData } from "./thuncks/thuncks";
 
+import LayOut from "./Components/LayOut/LayOut";
+import TablePage from "./Pages/TablePage";
+//
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Thunk (Action Creater)
+    dispatch(gettingData(dispatch));
+  }, [dispatch]);
+  //
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LayOut>
+      <Routes>
+        <Route path="/" element={<Navigate to="/page1" />} />
+        <Route path="/:pageNumber" element={<TablePage />} />
+      </Routes>
+    </LayOut>
   );
 }
 
