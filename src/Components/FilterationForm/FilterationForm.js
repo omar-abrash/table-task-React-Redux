@@ -52,19 +52,21 @@ const FilterationForm = () => {
     });
   };
   //
-  const submitHandler = (evet) => {
+  const submitHandler = async (evet) => {
     evet.preventDefault();
     // we can make validation in this point if we need that
-    // determind the type,value of Filteration
+    // determined the type,value of Filteration
     const filterType = filterationType(formData);
-    console.log(filterType);
+
     if (!filterType) {
+      // if filteration Type is false ::> Return all Data again
       dispatch(gettingData(dispatch));
       return;
     }
-    //
+    // look at here (await) to reset all data if we make more filteration
+    await dispatch(gettingData(dispatch));
     dispatch(mainDataSliceActions.dataFilteration(filterType));
-
+    // navigate to page1
     naviagate("/page1", { Replace: false });
   };
   //

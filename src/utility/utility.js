@@ -17,10 +17,12 @@ export const filterationType = (data) => {
       value: applicationId === "-/-" ? null : +applicationId,
     };
   }
-  if (applicationType) {
+  if (actionType) {
     return { type: "actionType", value: actionType };
   }
   if (date) {
     return { type: "creationTimestamp", value: date };
+  } else {
+    return undefined;
   }
 };

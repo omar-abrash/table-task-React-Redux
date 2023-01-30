@@ -12,7 +12,7 @@ const TablePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const pageNumber = +params.pageNumber.replace("page", "") - 1; // if page1 ::> [0]
+  const pageNumber = +params.pageNumber.replace("page", "") - 1; // if page1 make slice [0,10]
   const mainDataArray = useSelector((state) => state.mainData.mainData);
   //
   const queryParams = new URLSearchParams(location.search);
